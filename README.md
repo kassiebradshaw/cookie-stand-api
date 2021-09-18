@@ -16,10 +16,10 @@ Once you are confident that your application is *deployable* then time to resear
 
 ## Feature Tasks & Requirements
 
-* [x] Create a new repo `cookie-stand-api` (Mine is named salmon-cookies-api)
+* [x] Create a new repo `cookie-stand-api`
 * [x] Modify your application using instructions in README.md found in root of repo
-  * [ ] Change `things` app folder to be `cookie_stands`
-  * [ ] Go through code base looking for `Thing`, `thing`, and `things` - change to cookie-stand related names.
+  * [x] Change `things` app folder to be `cookie_stands`
+  * [x] Go through code base looking for `Thing`, `thing`, and `things` - change to cookie-stand related names.
     * E.g. `Thing` model becomes `CookieStand`, `ThingList` becomes `CookieStandList`
     * Pro Tip: Do a global text search looking for `thing` (search should be case insensitive)
 
