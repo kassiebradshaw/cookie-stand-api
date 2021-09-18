@@ -82,8 +82,12 @@ WSGI_APPLICATION = 'salmon_cookies_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'orbnbamm',
+        'USER': 'orbnbamm',
+        'PASSWORD': 'mFv98qvA-Fg9w7KRLAP7QE1T1dsCOK04',
+        'HOST': 'kashin.db.elephantsql.com',
+        'PORT': 5432,
     }
 }
 
@@ -125,6 +129,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -141,3 +146,6 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.BasicAuthentication'
     ],
 }
+
+CORS_ORIGIN_WHITELIST = tuple(env.list('ALLOWED_HOSTS'))
+CORS_ALLOW_ALL_ORIGINS = env.bool('ALLOW_ALL_ORIGINS')
