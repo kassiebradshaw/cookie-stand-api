@@ -82,8 +82,12 @@ WSGI_APPLICATION = 'salmon_cookies_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'orbnbamm',
+        'USER': 'orbnbamm',
+        'PASSWORD': 'mFv98qvA-Fg9w7KRLAP7QE1T1dsCOK04',
+        'HOST': 'kashin.db.elephantsql.com',
+        'PORT': 5432,
     }
 }
 
@@ -142,3 +146,6 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.BasicAuthentication'
     ],
 }
+
+CORS_ORIGIN_WHITELIST = tuple(env.list('ALLOWED_HOSTS'))
+CORS_ALLOW_ALL_ORIGINS = env.bool('ALLOW_ALL_ORIGINS')

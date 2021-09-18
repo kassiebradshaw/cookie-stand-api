@@ -37,7 +37,7 @@ Once you are confident that your application is *deployable* then time to resear
 
 ### Database Deployment Requirements
 
-* [ ] Host your Database at ElephantSQL
+* [x] Host your Database at ElephantSQL
 
 ### Site Deployment Requirements
 
