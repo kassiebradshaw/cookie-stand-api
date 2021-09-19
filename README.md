@@ -4,7 +4,7 @@
 
 [Link to my GitHub](https://github.com/kassiebradshaw/cookie-stand-api)
 
-[Link to my deployed URL](tbd)
+[Link to my deployed URL](http://3.17.71.61:8000/api/v1/cookie_stands/)
 
 ## Overview
 
@@ -41,7 +41,7 @@ Once you are confident that your application is *deployable* then time to resear
 
 ### Site Deployment Requirements
 
-* [ ] Deploy (to AWS, Heroku, etc)
+* [x] Deploy (to AWS, Heroku, etc)
 
 ### Stretch Goals
 
@@ -54,5 +54,5 @@ Once you are confident that your application is *deployable* then time to resear
 
 ## User Acceptance Tests
 
-* [ ] Manually confirm API using API Tester, Postman, or HTTPie
+* [x] Manually confirm API using API Tester, Postman, or HTTPie
   * Remember to use deployed url, not localhost
