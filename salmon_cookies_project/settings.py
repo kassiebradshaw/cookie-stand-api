@@ -10,10 +10,19 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+from datetime import timedelta
 from pathlib import Path
 import environ
 
-env = environ.Env(DEBUG=(bool, False))
+env = environ.Env(
+    DEBUG=(bool, False),
+    DATABASE_ENGINE=(str, ""),
+    DATABASE_NAME=(str, ""),
+    DATABASE_USER=(str, ""),
+    DATABASE_PASSWORD=(str, ""),
+    DATABASE_HOST=(str, ""),
+    DATABASE_PORT=(int, 5432),
+    )
 environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -41,7 +50,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # local
     'cookie_stands',
+    # 3rd party
     'rest_framework',
     'corsheaders',
 ]
@@ -84,12 +95,12 @@ WSGI_APPLICATION = 'salmon_cookies_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'orbnbamm',
-        'USER': 'orbnbamm',
-        'PASSWORD': 'mFv98qvA-Fg9w7KRLAP7QE1T1dsCOK04',
-        'HOST': 'kashin.db.elephantsql.com',
-        'PORT': 5432,
+        'ENGINE': env.str("DATABASE_ENGINE"),
+        'NAME': env.str("DATABASE_NAME"),
+        'USER': env.str("DATABASE_USER"),
+        'PASSWORD': env.str("DATABASE_PASSWORD"),
+        'HOST': env.str("DATABASE_HOST"),
+        'PORT': env.int("DATABASE_PORT"),
     }
 }
 
@@ -151,3 +162,9 @@ REST_FRAMEWORK = {
 
 CORS_ORIGIN_WHITELIST = tuple(env.list('ALLOWED_HOSTS'))
 CORS_ALLOW_ALL_ORIGINS = env.bool('ALLOW_ALL_ORIGINS')
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(
+        seconds=60 * 60
+    ) # lasts for 60 minutes
+}
